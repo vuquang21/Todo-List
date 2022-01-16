@@ -1,0 +1,27 @@
+.todoList {
+    background: white;
+    border-radius: 20xp;
+    width: 50%;
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    ul {
+        list-style: none;
+        padding: 1rem;
+    }
+    li {
+        border: 1px solid grey;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+    }
+    .complete {
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
+    .uncomplete {
+        opacity: 1;
+        text-decoration: none;
+    }
+    
+}

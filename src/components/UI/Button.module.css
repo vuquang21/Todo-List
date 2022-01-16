@@ -1,0 +1,27 @@
+.button {
+  display: block;
+  font: inherit;
+  padding: 0.25rem 1rem;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  cursor: pointer;
+  background: #741188;
+  margin: 0.25rem auto;
+  color: white;
+}
+
+.button .button:hover,
+.button .button:active {
+  border: none;
+  background: #74118857;
+}
+
+.button .button:focus {
+  background: #74118857;
+  outline: none;
+}
