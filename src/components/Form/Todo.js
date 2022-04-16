@@ -5,7 +5,7 @@ import Card from '../UI/Card'
 import Form from './Form'
 import classes from './style.module.scss'
 
-const Todo = ({todos, completeTodo, removeTodo, updatedTodo}) => {
+const Todo = ({ todos, completeTodo, removeTodo, updatedTodo }) => {
     const [edit, setEdit] = useState({
         id: null,
         value: ''
@@ -19,17 +19,22 @@ const Todo = ({todos, completeTodo, removeTodo, updatedTodo}) => {
     }
 
     if (edit.id) {
-        return <Form edit={edit} onSubmit={submitUpdate} />
+        return (
+
+            <div className='mt-4 mb-4'>
+                <Form edit={edit} onSubmit={submitUpdate} />
+            </div>
+        )
     }
 
     return todos.map((todo, index) => (
-        <Card className={`'flex flex-row justify-between mt-4 px-8 py-4' ${todo.isComplete} ? ${classes.isComplete} : '' `}>
+        <Card className='flex flex-row justify-between mt-4 px-8 py-4'>
             <div className={todo.isComplete ? `${classes.isComplete}` : ''} key={index}>
                 <div key={todo.id} onClick={() => completeTodo(todo.id)}>{todo.text}</div>
             </div>
             <div className='flex flex-row gap-4 justify-center self-center'>
-                <RiCloseCircleLine onClick={() => removeTodo(todo.id) } className='cursor-pointer' />
-                <TiEdit onClick={() => setEdit({id: todo.id, value: todo.text}) } className='cursor-pointer' />
+                <RiCloseCircleLine onClick={() => removeTodo(todo.id)} className='cursor-pointer' />
+                <TiEdit onClick={() => setEdit({ id: todo.id, value: todo.text })} className='cursor-pointer' />
             </div>
         </Card>
     ))

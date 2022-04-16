@@ -3,7 +3,7 @@ import Card from '../UI/Card'
 import Button from '../UI/Button'
 
 const Form = (props) => {
-  const [todo, setTodo] = useState('')
+  const [todo, setTodo] = useState(props.edit ? props.edit.value : '')
   const handleSubmitForm = (event) => {
     event.preventDefault()
     console.log(todo)
@@ -17,7 +17,20 @@ const Form = (props) => {
   const handleChange = (e) => {
     setTodo(e.target.value)
   }
-  return (
+  return props.edit ? (
+    <Card className='flex flex-col justify-center'>
+      <form className='flex flex-col w-[100%] max-w-[40rem] p-4  my-auto'
+        onSubmit={handleSubmitForm}>
+        <input
+          type='text'
+          value={todo}
+          placeholder='Update todo...'
+          onChange={handleChange}
+          className='flex w-[100%] mb-4 border-2 focus:outline-none' />
+        <Button type='submit'>Update</Button> 
+      </form>
+    </Card>
+  ) : (
     <Card className='flex flex-col justify-center'>
       <form className='flex flex-col w-[100%] max-w-[40rem] p-4  my-auto'
         onSubmit={handleSubmitForm}>
@@ -31,6 +44,8 @@ const Form = (props) => {
       </form>
     </Card>
   )
+  
+  
 }
 
 export default Form
